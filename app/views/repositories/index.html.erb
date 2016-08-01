@@ -4,9 +4,9 @@
   <h1>Repos</h1>
   <!-- List repositories here! -->
   <ul>
-  <% @repos.each do |repo| %>
+  <% @repos.take(10).each do |repo| %>
     <li><%= repo["name"] %></li>
-  <% end %>
+  <% end%>
   </ul>
 
   <%= form_tag("/repositories/create", method: "post") do %>
