@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
 	    req.params['code'] = params[:code]
 	  end
 
-    byebug
+
 
 	  hash = JSON.parse(resp.body)
     session[:token] = hash["access_token"]
