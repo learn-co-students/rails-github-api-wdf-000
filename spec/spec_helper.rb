@@ -15,6 +15,10 @@ RSpec.configure do |config|
     stub_request(:get, "https://api.github.com/user/repos").
       with(:headers => {'Authorization'=>'token 1'}).
       to_return(:status => 200, :body => [{"name" => "Repo 1", "html_url" => "http://link1.com"}, {"name" => "Repo 2", "html_url" => "http://link2.com"}, {"name" => "Repo 3", "html_url" => "http://link3.com"}].to_json, :headers => {})
+      #
+      # stub_request(:post, "https://github.com/login/oauth/access_token?client_id=bc078a6ff072bcf887b5&client_secret=5cec1d2f6eb7f8425d50a4ceed2cf27cc7ff0400&code=20").
+      #   with(:headers => {'Accept'=>'application/json'}).
+      #   to_return(:status => 200, :body => "", :headers => {})
 
     stub_request(:post, "https://github.com/login/oauth/access_token").
       with(:body => {"client_id"=> ENV["GITHUB_CLIENT"], "client_secret"=> ENV["GITHUB_SECRET"], "code"=>"20"},
