@@ -1,7 +1,7 @@
 <div class = "container">
-  <h1><%= @user_name %> - Repos</h1>
+  <h1><%= session[:username] %> - Repos</h1>
   <ul>
-  	<% @repos.each do |repo| %>
+  	<% @repos_array.each do |repo| %>
   	<li>
   		<%= repo["name"] %><br>
   	</li>
